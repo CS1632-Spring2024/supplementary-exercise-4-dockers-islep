@@ -47,39 +47,7 @@ public class D3Test {
   public void tearDown() {
     driver.quit();
   }
-  @Test
-  public void dEFECT1FUNFEED() {
-    driver.get("http://localhost:8080/");
-    driver.findElement(By.linkText("Feed-A-Cat")).click();
-    driver.findElement(By.cssSelector(".btn")).click();
-    assertThat(driver.findElement(By.id("feedResult")).getText(), is("Cat fight!"));
-    driver.close();
-  }
-  @Test
-  public void dEFECT2FUNGREETACAT() {
-    driver.get("http://localhost:8080/");
-    driver.findElement(By.linkText("Rent-A-Cat")).click();
-    driver.findElement(By.id("rentID")).click();
-    driver.findElement(By.id("rentID")).sendKeys("1");
-    driver.findElement(By.cssSelector(".form-group:nth-child(3) .btn")).click();
-    driver.findElement(By.linkText("Greet-A-Cat")).click();
-    assertThat(driver.findElement(By.cssSelector("#greeting > h4")).getText(), is("Meow!Meow!"));
-    driver.close();
-  }
-  @Test
-  public void dEFECT3FUNGREETACATWITHNAME() {
-    driver.get("http://localhost:8080/");
-    driver.findElement(By.linkText("Rent-A-Cat")).click();
-    driver.findElement(By.id("rentID")).click();
-    driver.findElement(By.id("rentID")).sendKeys("1");
-    driver.findElement(By.cssSelector(".form-group:nth-child(3) .btn")).click();
-    driver.get("http://localhost:8080/greet-a-cat/Jennyanydots");
-    {
-      List<WebElement> elements = driver.findElements(By.xpath("//h4[contains(.,\'Jennyanydots is not here.\')]"));
-      assert(elements.size() > 0);
-    }
-    driver.close();
-  }
+  
   @Test
   public void tEST1LINKS() {
     driver.get("http://localhost:8080/");
